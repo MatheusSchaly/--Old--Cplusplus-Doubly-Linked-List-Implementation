@@ -3,7 +3,7 @@
  *
  * Author:      Matheus Schaly
  * Created on:  Jul 17, 2017
- * Description: Defines the Node object
+ * Description: Declares the Node object
  */
 
 #ifndef NODE_H_
