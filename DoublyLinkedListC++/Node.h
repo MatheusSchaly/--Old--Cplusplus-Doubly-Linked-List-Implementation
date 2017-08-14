@@ -8,21 +8,22 @@
 
 #ifndef NODE_H_
 #define NODE_H_
-using namespace std;
 
 #include <iostream>
+
+using namespace std;
 
 class Node {
 	int data;
 	Node *next, *prev;
 public:
 	Node (int data);
-	int getData ();
 	void setData (int data);
-	Node* getNext ();
+	int getData ();
 	void setNext (Node *next);
-	Node* getPrev ();
+	Node* getNext ();
 	void setPrev (Node *prev);
+	Node* getPrev ();
 };
 
 #endif /* NODE_H_ */

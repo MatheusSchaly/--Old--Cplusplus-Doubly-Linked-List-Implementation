@@ -4,16 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../LinkedList.cpp \
-../Node.cpp 
+../DoublyLinkedList.cpp \
+../Node.cpp \
+../main.cpp 
 
 OBJS += \
-./LinkedList.o \
-./Node.o 
+./DoublyLinkedList.o \
+./Node.o \
+./main.o 
 
 CPP_DEPS += \
-./LinkedList.d \
-./Node.d 
+./DoublyLinkedList.d \
+./Node.d \
+./main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
