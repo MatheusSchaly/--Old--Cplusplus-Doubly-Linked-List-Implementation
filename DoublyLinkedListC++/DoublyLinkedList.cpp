@@ -35,6 +35,25 @@ int DoublyLinkedList::getListSize() {
 	return listSize;
 }
 
+
+DoublyLinkedList::~DoublyLinkedList() {
+	if (listSize == 0) {
+		return;
+	}
+	if (listSize == 1) {
+		delete getHead();
+		return;
+	}
+	Node *temp = getHead() -> getNext();
+	while (temp != NULL) {
+		delete temp -> getPrev();
+		temp = temp -> getNext();
+	}
+	delete getHead();
+	delete getTail();
+	this -> printList();
+}
+
 void DoublyLinkedList::increaseListSize() {
 	listSize++;
 }
@@ -89,8 +108,7 @@ void DoublyLinkedList::pushBack (int data) {
 
 void DoublyLinkedList::add (int data, int index) {
 	Node *newNode = new Node(data);
-	Node *temp = getHead();
-	if (temp == NULL) {
+	if (getHead() == NULL) {
 		increaseListSize();
 		setHead(newNode);
 		setTail(newNode);
@@ -105,6 +123,7 @@ void DoublyLinkedList::add (int data, int index) {
 		return;
 	}
 	increaseListSize();
+	Node *temp = getHead();
 	for (int i = 1; i < index; i++) {
 		temp = temp -> getNext();
 	}
@@ -120,7 +139,7 @@ void DoublyLinkedList::add (int data, int index) {
  */
 
 void DoublyLinkedList::popFront () {
-	if (getHead() == NULL) {
+	if (getListSize() == 0) {
 		return;
 	}
 	decreaseListSize();
@@ -129,6 +148,7 @@ void DoublyLinkedList::popFront () {
 		setTail(NULL);
 		return;
 	}
+	delete getHead() -> getPrev();
 	getHead() -> setPrev(NULL);
 }
 
@@ -138,7 +158,7 @@ void DoublyLinkedList::popFront () {
  */
 
 void DoublyLinkedList::popBack () {
-	if (getTail() == NULL) {
+	if (getListSize() == 0) {
 		return;
 	}
 	decreaseListSize();
@@ -147,6 +167,7 @@ void DoublyLinkedList::popBack () {
 		setHead(NULL);
 		return;
 	}
+	delete getTail() -> getNext();
 	getTail() -> setNext(NULL);
 }
 
@@ -155,10 +176,10 @@ void DoublyLinkedList::popBack () {
  */
 
 void DoublyLinkedList::reverseList () {
-	Node *current = getHead();
 	if (getHead() == NULL) {
 		return;
 	}
+	Node *current = getHead();
 	Node *prev = NULL;
 	setTail(getHead());
 	while (current != NULL) {

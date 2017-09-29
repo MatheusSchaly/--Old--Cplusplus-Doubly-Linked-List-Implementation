@@ -47,6 +47,7 @@ int main() {
 	doublyLinkedList -> popFront(); // 2 6 1 0
 	doublyLinkedList -> popBack(); // 2 6 1
 	doublyLinkedList -> printListReversed(); // 1 6 2 Size: 3
+	delete doublyLinkedList;
 }
 
 

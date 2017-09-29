@@ -19,6 +19,7 @@ class DoublyLinkedList {
 	int listSize;
 public:
 	DoublyLinkedList();
+	~DoublyLinkedList();
 	void setHead(Node *node);
 	Node* getHead();
 	void setTail(Node *node);
